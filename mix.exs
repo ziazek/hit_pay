@@ -4,8 +4,8 @@ defmodule HitPay.MixProject do
   def project do
     [
       app: :hit_pay,
-      version: "0.2.3",
-      elixir: "~> 1.7",
+      version: "0.2.4",
+      elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: description(),
@@ -25,10 +25,10 @@ defmodule HitPay.MixProject do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
-      {:jason, "~> 1.1"},
-      {:httpoison, "~> 1.0"},
-      {:plug_crypto, "~> 1.0"},
-      {:ex_doc, "~> 0.18", only: :dev}
+      {:jason, "~> 1.4"},
+      {:httpoison, "~> 2.1.0"},
+      {:plug_crypto, "~> 2.0"},
+      {:ex_doc, "~> 0.30.6", only: :dev}
     ]
   end
 
@@ -41,9 +41,9 @@ defmodule HitPay.MixProject do
   defp package do
     [
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
-      maintainers: ["Vu Minh Tan"],
+      maintainers: ["Zek Chak"],
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => "https://github.com/thekirinlab/hit_pay"}
+      links: %{"GitHub" => "https://github.com/ziazek/hit_pay"}
     ]
   end
 end

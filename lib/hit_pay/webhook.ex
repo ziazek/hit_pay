@@ -14,7 +14,7 @@ defmodule HitPay.Webhook do
     stripped_params = strip_params(params)
 
     signature =
-      :crypto.hmac(:sha256, salt, stripped_params) |> Base.encode16() |> String.downcase()
+      :crypto.mac(:hmac, :sha256, salt, stripped_params) |> Base.encode16() |> String.downcase()
 
     Logger.debug("signature: #{inspect(signature)}")
     Logger.debug("hmac: #{inspect(params[~s(hmac)])}")
@@ -24,6 +24,7 @@ defmodule HitPay.Webhook do
 
   defp strip_params(params) do
     Map.drop(params, ["hmac"])
+    |> Map.put("reference_number", Map.get(params, "reference_number", ""))
     |> Enum.map(fn {k, v} -> {k, v} end)
     |> Enum.sort_by(&elem(&1, 0))
     |> Enum.reduce("", fn {k, v}, acc ->
