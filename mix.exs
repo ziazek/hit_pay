@@ -4,8 +4,8 @@ defmodule HitPay.MixProject do
   def project do
     [
       app: :hit_pay,
-      version: "0.2.4",
-      elixir: "~> 1.15",
+      version: "0.2.5",
+      elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: description(),
